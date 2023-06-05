@@ -10,6 +10,7 @@ import { EmailController } from './controllers/email/email.controller';
 import { AdminModule } from './controllers/admin/admin.module';
 import { UserModule } from './controllers/user/user.module';
 import { LawyerModule } from './controllers/lawyer/lawyer.module';
+import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
     MailerModule.forRoot({
@@ -29,6 +30,7 @@ import { LawyerModule } from './controllers/lawyer/lawyer.module';
       secret: 'mySecretKey',
       signOptions: { expiresIn: '24h' },
     }),
+    AuthModule,
     AdminModule,
     UserModule,
     LawyerModule,
