@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 export class User {
+    avatar: string;
     email: string;
     password: string;
     name: string;
@@ -16,6 +17,7 @@ export class User {
     number: string;
 
     constructor(
+        avatar: string,
         email: string,
         password: string,
         name: string,
@@ -31,6 +33,7 @@ export class User {
         cep: string,
         number: string
     ) {
+        this.avatar = avatar;
         this.email = email;
         this.password = password;
         this.name = name;

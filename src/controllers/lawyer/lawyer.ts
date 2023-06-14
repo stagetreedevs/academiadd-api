@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 export class Lawyer {
+    avatar: string;
     email: string;
     password: string;
     type: string;
@@ -19,6 +20,7 @@ export class Lawyer {
     creditCards: [string];
 
     constructor(
+        avatar: string,
         email: string,
         password: string,
         type: string,
@@ -37,6 +39,7 @@ export class Lawyer {
         number: string,
         creditCards: [string]
     ) {
+        this.avatar = avatar;
         this.email = email;
         this.password = password;
         this.type = type;
