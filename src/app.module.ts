@@ -11,6 +11,9 @@ import { AdminModule } from './controllers/admin/admin.module';
 import { UserModule } from './controllers/user/user.module';
 import { LawyerModule } from './controllers/lawyer/lawyer.module';
 import { AuthModule } from './auth/auth.module';
+import { AuthService } from './auth/auth.service';
+import { PetitionModule } from './controllers/petition/petition.module';
+import { GroupModule } from './controllers/group/group.module';
 @Module({
   imports: [
     MailerModule.forRoot({
@@ -30,6 +33,8 @@ import { AuthModule } from './auth/auth.module';
       secret: 'mySecretKey',
       signOptions: { expiresIn: '24h' },
     }),
+    GroupModule,
+    PetitionModule,
     AuthModule,
     AdminModule,
     UserModule,
@@ -39,6 +44,6 @@ import { AuthModule } from './auth/auth.module';
     EmailController,
     AppController
   ],
-  providers: [AppService],
+  providers: [AppService, AuthService],
 })
 export class AppModule { }
