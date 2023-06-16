@@ -30,7 +30,7 @@ export class LawyerService {
       complement: lawyer.complement,
       cep: lawyer.cep,
       number: lawyer.number,
-      creditCards: lawyer.creditCards
+      creditCards: lawyer.creditCards !== undefined ? lawyer.creditCards : []
     };
 
     await set(newLawyerRef, lawyerData);
