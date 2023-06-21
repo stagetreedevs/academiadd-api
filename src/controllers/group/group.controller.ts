@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Get, Param, Patch, Post, Delete } from '@nestjs/common';
+import { Body, Controller, Get, Param, Put, Post, Delete } from '@nestjs/common';
 import { GroupService } from './group.service';
 import { Group } from './group';
 
@@ -27,7 +27,7 @@ export class GroupController {
     return this.groupService.getByLawyerId(userId);
   }
 
-  @Patch(':id')
+  @Put(':id')
   async update(@Param('id') id: string, @Body() updates: Partial<Group>): Promise<void> {
     await this.groupService.update(id, updates);
   }

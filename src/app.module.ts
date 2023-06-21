@@ -14,6 +14,7 @@ import { AuthModule } from './auth/auth.module';
 import { AuthService } from './auth/auth.service';
 import { PetitionModule } from './controllers/petition/petition.module';
 import { GroupModule } from './controllers/group/group.module';
+import { NoticiationModule } from './controllers/notification/notification.module';
 @Module({
   imports: [
     MailerModule.forRoot({
@@ -33,6 +34,7 @@ import { GroupModule } from './controllers/group/group.module';
       secret: 'mySecretKey',
       signOptions: { expiresIn: '24h' },
     }),
+    NoticiationModule,
     GroupModule,
     PetitionModule,
     AuthModule,

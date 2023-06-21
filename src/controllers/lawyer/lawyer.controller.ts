@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Body, Controller, Get, Param, Patch, Post, Delete } from '@nestjs/common';
+import { Body, Controller, Get, Param, Put, Post, Delete } from '@nestjs/common';
 import { LawyerService } from './lawyer.service';
 import { Lawyer } from './lawyer';
 @Controller('lawyer')
@@ -27,7 +27,7 @@ export class LawyerController {
     return this.lawyerService.getByEmail(email);
   }
 
-  @Patch(':id')
+  @Put(':id')
   async update(@Param('id') id: string, @Body() updates: Partial<Lawyer>): Promise<void> {
     await this.lawyerService.update(id, updates);
   }

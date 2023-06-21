@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Body, Controller, Get, Param, Patch, Post, Delete } from '@nestjs/common';
+import { Body, Controller, Get, Param, Put, Post, Delete } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user';
 
@@ -28,7 +28,7 @@ export class UserController {
     return this.userService.getUserByEmail(email);
   }
 
-  @Patch(':id')
+  @Put(':id')
   async updateUser(@Param('id') id: string, @Body() updates: Partial<User>): Promise<void> {
     await this.userService.updateUser(id, updates);
   }

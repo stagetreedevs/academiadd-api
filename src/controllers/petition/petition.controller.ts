@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Body, Controller, Get, Param, Patch, Post, Delete } from '@nestjs/common';
+import { Body, Controller, Get, Param, Put, Post, Delete } from '@nestjs/common';
 import { PetitionService } from './petition.service';
 import { Petition } from './petition';
 
@@ -23,7 +23,7 @@ export class PetitionController {
     return this.ptService.getById(id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   async update(@Param('id') id: string, @Body() updates: Partial<Petition>): Promise<void> {
     await this.ptService.update(id, updates);
   }
