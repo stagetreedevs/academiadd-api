@@ -12,7 +12,7 @@ export class LawyerService {
     const newLawyerRef = push(lawyerRef);
 
     const lawyerData = {
-      avatar: "https://firebasestorage.googleapis.com/v0/b/academia-dos-doutores.appspot.com/o/profile.png?alt=media&token=2a30ebe1-568e-4915-9d1a-cc619ed14dc1",
+      avatar: lawyer.avatar !== undefined ? lawyer.avatar : "",
       id: newLawyerRef.key,
       email: lawyer.email,
       password: lawyer.password,
