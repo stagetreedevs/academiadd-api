@@ -63,9 +63,9 @@ export class NotificationService {
     const database = getDatabase();
     const notRef = ref(database, 'notification');
     const queryByUserId = query(notRef, orderByChild('receiver_id'), equalTo(receiverId));
-  
+
     const snapshot = await get(queryByUserId);
-  
+
     if (snapshot.exists()) {
       const notifications = [];
       snapshot.forEach((childSnapshot) => {
@@ -74,7 +74,7 @@ export class NotificationService {
       });
       return notifications;
     }
-  
+
     return [];
   }
 
@@ -100,16 +100,17 @@ export class NotificationService {
   async update(id: string, updates: Partial<Notification>): Promise<void> {
     const database = getDatabase();
     const notRef = ref(database, `notification/${id}`);
-  
+
     await set(notRef, updates);
   }
 
   async read(id: string): Promise<void> {
     const database = getDatabase();
     const notRef = ref(database, `notification/${id}`);
-  
-    await update(notRef, { read: true });  }
-  
+
+    await update(notRef, { read: true });
+  }
+
   async delete(id: string): Promise<void> {
     const database = getDatabase();
     const notRef = ref(database, `notification/${id}`);
